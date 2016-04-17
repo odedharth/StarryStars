@@ -209,7 +209,5 @@ extension RatingView {
     override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         guard editable else { return }
         handleTouches(touches)
-        guard let delegate = delegate else { return }
-        delegate.ratingView(self, didChangeRating: rating)
     }
 }
