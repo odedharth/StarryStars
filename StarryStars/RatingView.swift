@@ -14,7 +14,7 @@ import UIKit
      - parameter ratingView: Rating view, which calls this method
      - parameter didChangeRating newRating: New rating
     */
-    func ratingView(ratingView: RatingView, didChangeRating newRating: Float)
+    func ratingView(didChangeRatingOnMove newRating: Float)
 }
 
 /**
@@ -42,6 +42,8 @@ public class RatingView: UIView {
             rating = min(Float(starCount), rating)
             
             updateRating()
+            guard let delegate = delegate else { return }
+            delegate.ratingView(didChangeRatingOnMove: rating)
         }
     }
     
